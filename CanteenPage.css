@@ -1,0 +1,664 @@
+/* Food banner styles */
+.food-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.food-banner-img {
+  width: 160px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  border: 2px solid #f3f4f6;
+}
+
+/* Menu card enhancements */
+.menu-item-card {
+  display: flex;
+  align-items: center;
+  background: #f9fafb;
+  
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.06);
+  padding: 0.75rem 1rem;
+  gap: 1.25rem;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 0.5rem;
+}
+.menu-food-img {
+  width: 96px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-right: 12px;
+  border: 1.5px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.menu-food-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #374151;
+}
+/* Canteen page styles: layout for menu, cart and scanner area. */
+:root{
+  --card-bg: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb; /* blue-600 */
+  --success: #16a34a; /* green-600 */
+}
+
+.canteen-page { padding: 1.5rem; }
+
+.canteen-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+
+@media (min-width: 768px){
+  .canteen-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 1024px){
+  /* three columns on wider screens: menu | scanner | ledger */
+  .canteen-grid { grid-template-columns: 1fr 1fr 420px; }
+}
+
+/* Ledger styles: clean card-based transaction list */
+.ledger-column { padding: 1rem; }
+.ledger-list { display:flex; flex-direction:column; gap:0.75rem; max-height: calc(70vh); overflow:auto; padding-right:6px; }
+
+.ledger-card { background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,250,0.98)); border-radius: 12px; padding: 12px; box-shadow: 0 6px 18px rgba(2,6,23,0.06); border: 1px solid rgba(15,23,42,0.04); display:flex; flex-direction:column; gap:8px; }
+.ledger-row { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
+.ledger-left { display:flex; flex-direction:column; gap:6px; min-width:0; }
+.ledger-right { display:flex; flex-direction:column; align-items:flex-end; gap:6px; width:180px; }
+
+.ledger-id { font-size:0.9rem; color:var(--muted); font-weight:600; }
+.ledger-meta { color: #374151; font-weight:600; display:flex; align-items:center; gap:8px; }
+.ledger-meta::before { content: '👤'; display:inline-block; }
+.ledger-action { color: #6b7280; font-size:0.9rem; display:flex; align-items:center; gap:8px; }
+.ledger-action::before { content: '🛒'; display:inline-block; }
+
+.ledger-amount { font-weight:800; font-size:1.02rem; color: #ea580c; display:flex; align-items:center; gap:6px; }
+.ledger-amount::before { content: ''; display: none; }
+.ledger-balance { display:none; }
+.ledger-time { font-size:0.8rem; color:var(--muted); display:flex; align-items:center; gap:6px; }
+.ledger-time::before { content: '⏱️'; display:inline-block; }
+
+.ledger-footer { display:flex; justify-content:flex-end; }
+.verified { color: #065f46; font-weight:700; background: rgba(6,95,70,0.06); padding:6px 10px; border-radius:999px; display:inline-flex; align-items:center; gap:8px; }
+/* remove pseudo marker - content included in markup as ✔✔ */
+.verified::before { content: ''; }
+
+.ledger-debit .ledger-amount { color: #ea580c; }
+.ledger-credit .ledger-amount { color: #ea580c; }
+
+/* small truncation rules */
+.ledger-id, .ledger-meta, .ledger-action { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+/* scrollbar tweaks for ledger list */
+.ledger-list::-webkit-scrollbar { width:8px; }
+.ledger-list::-webkit-scrollbar-thumb { background: rgba(15,23,42,0.06); border-radius:8px; }
+
+/* tx link / copy controls */
+.tx-link-btn { margin-left:8px; background:transparent; border:none; cursor:pointer; font-size:0.95rem; padding:2px 6px; border-radius:6px; }
+.tx-link-btn:hover { background: rgba(15,23,42,0.03); }
+.tx-open { margin-left:8px; font-size:0.85rem; color: var(--accent); text-decoration: none; padding:2px 6px; border-radius:6px; }
+.tx-open:hover { text-decoration:underline; }
+
+
+.canteen-card { background: var(--card-bg); border-radius: 0.5rem; box-shadow: 0 6px 18px rgba(15,23,42,0.06); padding: 1rem; }
+
+.menu-item { display:flex; align-items:center; justify-content:space-between; padding:0.5rem; border-radius:0.375rem; border:1px solid rgba(15,23,42,0.04); }
+.menu-item .meta { display:flex; flex-direction:column; }
+.menu-item .price { color: var(--muted); font-size:0.9rem; }
+
+.qty-controls { display:flex; align-items:center; gap:0.5rem; }
+.qty-controls button { border-radius:0.375rem; padding:0.25rem 0.6rem; border:1px solid rgba(15,23,42,0.06); background:#f3f4f6; cursor:pointer; }
+.qty-controls button.primary { background:var(--accent); color:white; border: none; }
+
+.total-box { margin-top:1rem; padding:0.75rem; border-radius:0.375rem; background:#f9fafb; border:1px solid rgba(15,23,42,0.03); }
+.scan-button { width:100%; padding:0.6rem; border-radius:0.375rem; cursor:pointer; }
+.scan-button.enabled { background:var(--success); color:white; }
+.scan-button.disabled { background:#e5e7eb; color:#9ca3af; cursor:not-allowed; }
+
+/* Scanner column */
+.scanner-area { display:flex; flex-direction:column; }
+.scanner-box { border-radius:0.375rem; overflow:hidden; }
+.scanner-message { margin-top:0.75rem; color:var(--muted); font-size:0.95rem; }
+
+.student-card { margin-top:0.75rem; padding:0.75rem; background:#f8fafc; border-radius:0.375rem; }
+.student-card .name { font-weight:600; }
+.student-card .dept { color:var(--muted); font-size:0.92rem; }
+
+.scanner-close { margin-top:0.5rem; background:transparent; border:1px solid rgba(15,23,42,0.06); padding:0.4rem 0.6rem; border-radius:0.375rem; cursor:pointer; }
+
+/* Redesigned canteen visual theme */
+.canteen-page {
+  --warm-cream: #fff7eb;
+  --warm-card: #fffdf8;
+  --warm-shadow: rgba(80, 34, 7, 0.12);
+  --warm-text: #2f1e13;
+  --warm-muted: #7a5b46;
+  --warm-accent: #d14d28;
+  --warm-accent-strong: #af3717;
+  --warm-success: #1f7a4c;
+  --warm-border: rgba(110, 67, 36, 0.18);
+
+  min-height: 100vh;
+  padding: 1.5rem;
+  color: var(--warm-text);
+  background:
+    radial-gradient(circle at 8% 10%, rgba(255, 200, 145, 0.28), transparent 32%),
+    radial-gradient(circle at 92% 18%, rgba(255, 161, 129, 0.26), transparent 30%),
+    linear-gradient(155deg, #fff7ec 0%, #fffaf3 42%, #fff4e8 100%);
+}
+
+.canteen-hero {
+  max-width: 1400px;
+  margin: 0 auto 1.3rem;
+  padding: 1.2rem 1.25rem;
+  border-radius: 22px;
+  border: 1px solid var(--warm-border);
+  background: linear-gradient(135deg, rgba(255, 248, 237, 0.92), rgba(255, 237, 220, 0.92));
+  box-shadow: 0 16px 34px var(--warm-shadow);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.canteen-kicker {
+  margin: 0 0 0.45rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: #9e4f2b;
+}
+
+.canteen-title {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.4vw, 2.2rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  font-weight: 800;
+}
+
+.canteen-subtitle {
+  margin: 0.6rem 0 0;
+  max-width: 58ch;
+  color: var(--warm-muted);
+  font-size: 0.97rem;
+}
+
+.wallet-tile {
+  border-radius: 16px;
+  border: 1px solid rgba(174, 80, 31, 0.25);
+  background: linear-gradient(160deg, rgba(255, 247, 215, 0.95), rgba(255, 232, 174, 0.94));
+  box-shadow: 0 10px 24px rgba(165, 93, 26, 0.17);
+  padding: 0.8rem 1rem;
+  min-width: 230px;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.wallet-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 253, 245, 0.85);
+  font-size: 1.25rem;
+}
+
+.wallet-label {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8e5f2e;
+  font-weight: 700;
+}
+
+.wallet-value {
+  margin-top: 0.1rem;
+  font-weight: 800;
+  font-size: 1.26rem;
+  color: #5d2f14;
+}
+
+.food-banner {
+  max-width: 1400px;
+  margin: 0 auto 1.35rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.food-banner-img {
+  width: 100%;
+  height: 155px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(133, 73, 40, 0.2);
+  box-shadow: 0 8px 20px rgba(86, 39, 10, 0.16);
+  transform: translateY(0);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.food-banner-img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 24px rgba(86, 39, 10, 0.2);
+}
+
+.canteen-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1.08fr 1fr;
+}
+
+@media (min-width: 1220px) {
+  .canteen-grid {
+    grid-template-columns: 1.05fr 0.95fr 1fr;
+  }
+}
+
+.canteen-card {
+  border-radius: 18px;
+  padding: 1rem;
+  background: linear-gradient(170deg, rgba(255, 253, 246, 0.94), rgba(255, 247, 236, 0.94));
+  border: 1px solid var(--warm-border);
+  box-shadow: 0 10px 25px var(--warm-shadow);
+  backdrop-filter: blur(2px);
+}
+
+.section-title {
+  margin: 0 0 0.9rem;
+  font-size: 1.15rem;
+  font-weight: 750;
+}
+
+.add-item-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.form-input {
+  border: 1px solid rgba(128, 75, 34, 0.25);
+  border-radius: 10px;
+  background: #fffefa;
+  padding: 0.52rem 0.62rem;
+  font-size: 0.92rem;
+  color: var(--warm-text);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: rgba(186, 75, 32, 0.65);
+  box-shadow: 0 0 0 3px rgba(232, 140, 93, 0.2);
+}
+
+.form-grow { flex: 1; }
+.form-price { width: 96px; }
+.form-edit-price { width: 78px; }
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.58rem;
+}
+
+.menu-item-card {
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.68rem;
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(255, 253, 248, 0.98), rgba(255, 244, 231, 0.98));
+  border: 1px solid rgba(136, 84, 46, 0.2);
+  box-shadow: 0 6px 16px rgba(79, 44, 19, 0.1);
+}
+
+.menu-food-img {
+  width: 108px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(123, 70, 32, 0.2);
+  margin-right: 0;
+}
+
+.menu-item-meta {
+  min-width: 140px;
+}
+
+.menu-food-title {
+  font-size: 0.99rem;
+  color: #3a281b;
+}
+
+.menu-item-card .price {
+  color: #916a52;
+  font-size: 0.86rem;
+  margin-top: 0.2rem;
+}
+
+.edit-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.qty-controls {
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.qty-btn {
+  min-width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(124, 77, 43, 0.25);
+  background: #fffaf2;
+  color: #4a2f1e;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.qty-btn-add {
+  border-color: transparent;
+  background: linear-gradient(135deg, #d8582d, #b53f1b);
+  color: #fff;
+}
+
+.qty-count {
+  width: 34px;
+  text-align: center;
+  font-weight: 700;
+  color: #5d3b28;
+}
+
+.menu-action-btn {
+  border-radius: 8px;
+  padding: 0.36rem 0.56rem;
+  border: 1px solid rgba(124, 77, 43, 0.25);
+  background: #fffaf2;
+  color: #5b3d2c;
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 600;
+}
+
+.menu-action-btn-primary {
+  border-color: transparent;
+  color: #fff;
+  background: linear-gradient(135deg, #2f9d62, #1f7a4c);
+}
+
+.menu-action-btn-save {
+  border-color: transparent;
+  color: #fff;
+  background: linear-gradient(135deg, #2473e0, #1451b4);
+}
+
+.menu-action-btn-danger {
+  border-color: transparent;
+  color: #fff;
+  background: linear-gradient(135deg, #db4d40, #b91f1f);
+}
+
+.total-panel {
+  margin-top: 0.88rem;
+  border: 1px solid rgba(122, 73, 39, 0.2);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255, 248, 237, 0.95), rgba(255, 241, 225, 0.95));
+  padding: 0.66rem;
+}
+
+.total-box {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  background: transparent;
+  padding: 0.2rem;
+}
+
+.scan-wrap {
+  margin-top: 0.65rem;
+}
+
+.scan-button {
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.scan-button.enabled {
+  background: linear-gradient(135deg, #1d8e55, #16663d);
+  box-shadow: 0 9px 18px rgba(31, 122, 76, 0.24);
+}
+
+.scan-button.enabled:hover {
+  transform: translateY(-1px);
+}
+
+.scan-button.disabled {
+  background: #efdfcf;
+  color: #a08067;
+  box-shadow: none;
+}
+
+.scanner-column .scanner-box {
+  width: min(100%, 360px);
+}
+
+.scanner-message {
+  margin-top: 0.8rem;
+  color: #5e4334;
+}
+
+.student-card {
+  margin-top: 0.75rem;
+  border: 1px solid rgba(122, 73, 39, 0.2);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 249, 240, 0.95), rgba(255, 243, 229, 0.95));
+  padding: 0.8rem;
+}
+
+.student-photo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.72rem;
+}
+
+.student-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 3px solid rgba(208, 129, 73, 0.28);
+}
+
+.student-card .name {
+  font-weight: 750;
+  margin-bottom: 0.2rem;
+}
+
+.student-pay-wrap {
+  margin-top: 0.68rem;
+}
+
+.pay-btn {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 0.56rem 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pay-btn-enabled {
+  color: #fff;
+  background: linear-gradient(135deg, #2473e0, #1451b4);
+}
+
+.pay-btn-disabled {
+  color: #8d7260;
+  background: #f0dfcf;
+  cursor: not-allowed;
+}
+
+.scanner-close {
+  margin-top: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(128, 75, 34, 0.25);
+  background: #fffaf2;
+  color: #5a3b2a;
+  font-weight: 600;
+}
+
+.scanner-empty-state {
+  border: 1px dashed rgba(125, 76, 42, 0.32);
+  border-radius: 12px;
+  padding: 1.1rem;
+  color: #7a5b46;
+  background: rgba(255, 250, 244, 0.82);
+}
+
+.scanner-empty-state-strong {
+  font-weight: 800;
+}
+
+.ledger-column {
+  padding: 1rem;
+}
+
+.ledger-subtitle {
+  margin: -0.2rem 0 0.8rem;
+  font-size: 0.88rem;
+  color: #7b5f4d;
+}
+
+.ledger-list {
+  max-height: calc(72vh);
+  padding-right: 0.2rem;
+}
+
+.ledger-card {
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255, 251, 245, 0.98), rgba(255, 243, 228, 0.98));
+  border: 1px solid rgba(120, 72, 40, 0.2);
+  box-shadow: 0 6px 14px rgba(70, 34, 12, 0.11);
+}
+
+.ledger-id {
+  color: #7d604f;
+}
+
+.tx-chip {
+  background: rgba(125, 76, 42, 0.12);
+  color: #7d4f2f;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+}
+
+.ledger-meta {
+  color: #523727;
+}
+
+.ledger-meta::before,
+.ledger-action::before,
+.ledger-time::before {
+  content: none;
+}
+
+.ledger-action {
+  color: #6e5241;
+}
+
+.ledger-time {
+  color: #7d604f;
+}
+
+.verified {
+  color: #17653f;
+  background: rgba(24, 112, 69, 0.12);
+}
+
+.ledger-empty {
+  padding: 1rem;
+  text-align: center;
+  color: #8f7564;
+  font-weight: 600;
+}
+
+@media (max-width: 1219px) {
+  .ledger-column {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 900px) {
+  .canteen-page {
+    padding: 1rem;
+  }
+
+  .canteen-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wallet-tile {
+    width: 100%;
+  }
+
+  .food-banner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .menu-item-card {
+    flex-wrap: wrap;
+  }
+
+  .menu-item-meta {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .food-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .food-banner-img {
+    height: 172px;
+  }
+
+  .add-item-form {
+    flex-wrap: wrap;
+  }
+
+  .form-price {
+    width: 100%;
+  }
+
+  .menu-action-btn-primary {
+    width: 100%;
+  }
+
+  .qty-controls {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

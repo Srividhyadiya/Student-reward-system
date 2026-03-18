@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
+
+.canteen-login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Manrope', sans-serif;
+  background:
+    radial-gradient(circle at 8% 14%, rgba(255, 170, 130, 0.34), transparent 34%),
+    radial-gradient(circle at 92% 86%, rgba(255, 209, 128, 0.28), transparent 35%),
+    linear-gradient(160deg, #fff3e7 0%, #fff8ef 46%, #fff2e8 100%);
+}
+
+.canteen-aura {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 999px;
+  opacity: 0.58;
+  pointer-events: none;
+}
+
+.canteen-aura-left {
+  top: -120px;
+  left: -90px;
+  background: radial-gradient(circle, rgba(255, 151, 113, 0.44), transparent 70%);
+}
+
+.canteen-aura-right {
+  right: -90px;
+  bottom: -130px;
+  background: radial-gradient(circle, rgba(255, 190, 108, 0.44), transparent 70%);
+}
+
+.canteen-login-shell {
+  width: 100%;
+  max-width: 980px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(106, 55, 28, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 24px 50px rgba(82, 46, 24, 0.16);
+  backdrop-filter: blur(3px);
+  display: grid;
+  grid-template-columns: 1.04fr 0.96fr;
+}
+
+.canteen-brand-panel {
+  padding: 2rem;
+  background:
+    linear-gradient(145deg, rgba(255, 247, 232, 0.95), rgba(255, 239, 221, 0.95)),
+    linear-gradient(180deg, #fff8ef, #fff3e8);
+  border-right: 1px solid rgba(106, 55, 28, 0.14);
+  color: #462715;
+}
+
+.canteen-kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.73rem;
+  font-weight: 800;
+  color: #9e6040;
+}
+
+.canteen-title {
+  margin: 0.5rem 0 0;
+  font-family: 'Fraunces', serif;
+  line-height: 1.08;
+  font-size: clamp(1.7rem, 2.5vw, 2.2rem);
+  color: #3c1f12;
+}
+
+.canteen-sub {
+  margin: 0.8rem 0 0;
+  color: #7b523d;
+  max-width: 35ch;
+}
+
+.canteen-feature-list {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.canteen-feature {
+  border-radius: 11px;
+  padding: 0.56rem 0.72rem;
+  border: 1px solid rgba(120, 70, 38, 0.16);
+  background: rgba(255, 255, 255, 0.68);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #5a3827;
+}
+
+.canteen-status-card {
+  margin-top: 1.25rem;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  border-radius: 12px;
+  padding: 0.62rem 0.74rem;
+  border: 1px solid rgba(120, 70, 38, 0.15);
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.canteen-status-label {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.67rem;
+  color: #9b6243;
+  font-weight: 700;
+}
+
+.canteen-status-value {
+  font-size: 0.92rem;
+  color: #3f2416;
+  font-weight: 800;
+}
+
+.canteen-form-panel {
+  padding: 2rem;
+  color: #3d2315;
+}
+
+.canteen-form-top {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.74rem;
+}
+
+.canteen-logo-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #fff6ea, #ffe9d3);
+  border: 1px solid rgba(118, 66, 34, 0.16);
+}
+
+.canteen-logo {
+  font-size: 1.24rem;
+}
+
+.canteen-form-top h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.canteen-form-top p {
+  margin: 0.26rem 0 0;
+  color: #865a42;
+  font-size: 0.88rem;
+}
+
+.canteen-role-row {
+  margin-bottom: 0.8rem;
+}
+
+.canteen-role-row label {
+  display: block;
+  margin-bottom: 0.34rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #694431;
+}
+
+.canteen-role-select {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(125, 71, 39, 0.2);
+  background: #fff;
+  color: #3c2316;
+  padding: 0.56rem 0.68rem;
+}
+
+.canteen-role-select:focus {
+  outline: none;
+  border-color: rgba(201, 96, 54, 0.58);
+  box-shadow: 0 0 0 3px rgba(226, 145, 107, 0.2);
+}
+
+.canteen-login-form .canteen-form-group {
+  margin-top: 0.62rem;
+}
+
+.canteen-login-form label {
+  display: block;
+  margin-bottom: 0.34rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #6a4734;
+}
+
+.canteen-input-wrap {
+  border-radius: 11px;
+  border: 1px solid rgba(125, 71, 39, 0.2);
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.canteen-input-wrap input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0.66rem 0.72rem;
+  font-size: 0.92rem;
+  color: #3a2215;
+}
+
+.canteen-input-wrap:focus-within {
+  border-color: rgba(201, 96, 54, 0.58);
+  box-shadow: 0 0 0 3px rgba(226, 145, 107, 0.2);
+}
+
+.canteen-error-message {
+  border-radius: 9px;
+  border: 1px solid rgba(174, 66, 66, 0.24);
+  background: #ffecec;
+  color: #a23030;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.52rem 0.62rem;
+  margin-top: 0.74rem;
+}
+
+.canteen-login-button {
+  width: 100%;
+  margin-top: 0.74rem;
+  border: none;
+  border-radius: 12px;
+  padding: 0.72rem 0.86rem;
+  color: #ffffff;
+  background: linear-gradient(130deg, #d0612f, #b94d1f);
+  box-shadow: 0 12px 24px rgba(185, 77, 31, 0.28);
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 170ms ease, box-shadow 170ms ease, opacity 170ms ease;
+}
+
+.canteen-login-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 26px rgba(185, 77, 31, 0.34);
+}
+
+.canteen-login-button:disabled {
+  opacity: 0.74;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .canteen-login-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .canteen-brand-panel {
+    border-right: none;
+    border-bottom: 1px solid rgba(106, 55, 28, 0.14);
+  }
+}
+
+@media (max-width: 560px) {
+  .canteen-login-page {
+    padding: 0.8rem;
+  }
+
+  .canteen-brand-panel,
+  .canteen-form-panel {
+    padding: 1.15rem;
+  }
+}
