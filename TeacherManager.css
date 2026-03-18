@@ -1,0 +1,47 @@
+.tm-root {
+  padding: 24px;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: #0f172a;
+}
+.tm-header {
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+}
+.tm-title {
+  margin:0;
+  font-size:22px;
+  font-weight:700;
+}
+.tm-subtitle { color:#475569; margin:4px 0 0 0; font-size:14px }
+.tm-add-btn { background:#0ea5e9; color:white; border:none; padding:10px 14px; border-radius:8px; cursor:pointer }
+.tm-grid { margin-top:18px; display:flex; gap:16px; flex-wrap:wrap }
+.teacher-card { width:260px; background:white; border-radius:12px; padding:14px; box-shadow:0 6px 18px rgba(2,6,23,0.08); display:flex; flex-direction:column; gap:10px }
+.teacher-name { font-weight:700; font-size:16px; margin:0 }
+.teacher-sub { color:#475569; font-size:13px; margin:0 }
+.tt-label { font-size:13px; color:#0369a1; font-weight:600 }
+.card-actions { display:flex; gap:8px; margin-top:8px }
+.btn { padding:8px 10px; border-radius:8px; border:none; cursor:pointer }
+.btn.edit { background:#2563eb; color:white }
+.btn.timetable { background:#f97316; color:white }
+.btn.delete { background:#ef4444; color:white }
+/* small icon button for details */
+.icon-btn { background:transparent; border:none; padding:6px; width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; cursor:pointer }
+.icon-btn svg { display:block }
+.icon-btn:hover { background:rgba(2,6,23,0.04) }
+
+/* Modal */
+.modal-backdrop { position:fixed; inset:0; background:rgba(2,6,23,0.45); display:flex; align-items:center; justify-content:center; z-index:60 }
+.modal { background:white; border-radius:12px; padding:18px; width:520px; max-width:95%; box-shadow:0 12px 40px rgba(2,6,23,0.3) }
+.modal h3 { margin:0 0 10px 0 }
+.form-row { display:flex; gap:8px; margin-bottom:10px }
+.form-row input, .form-row select, .form-row textarea { flex:1; padding:8px 10px; border:1px solid #e6e9ee; border-radius:8px }
+.form-row input[readonly] { background:#f8fafc; color:#334155; border-color:#e6eef7 }
+.modal-actions { display:flex; gap:8px; justify-content:flex-end; margin-top:10px }
+.muted { color:#6b7280 }
+
+.slot-list { margin-top:8px; max-height:220px; overflow:auto; border-top:1px solid #eef2f7; padding-top:8px }
+.slot-item { display:flex; justify-content:space-between; gap:8px; padding:8px 0; border-bottom:1px solid #f1f5f9 }
+.slot-item .meta { color:#334155 }
+.small { font-size:13px }
